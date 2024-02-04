@@ -7,3 +7,4 @@
 * [ping](ping.md)
 * [traceroute](traceroute.md)
 * [Wireshark](wireshark.md)
+* [Packet Tracer](packettracer.md)
