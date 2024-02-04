@@ -10,6 +10,7 @@
 - (het) Internet: het grootste internet, waarop onder andere het World Wide Web te vinden is
 - IP-adres: het adres waarop een node op het publieke Internet in principe bereikt kan worden
   - om historische redenen klopt dit niet meer, maar het is een goed startpunt
+- netwerkinterface: Een netwerkinterface is een hardware- of softwarecomponent van een computer of ander apparaat waarmee het kan communiceren over een netwerk. Bijvoorbeeld een netwerkkaart of een gevirtualiseerde versie hiervan.
 - node: een knooppunt in een netwerk
 - packet loss: het verlies van data onderweg naar een bestemming
 - packet switching: een type communicatie waarbij geen verbinding tussen de eindpunten gereserveerd wordt, bijvoorbeeld zoals bij communicatie via de post
