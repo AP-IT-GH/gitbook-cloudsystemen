@@ -7,7 +7,7 @@ De plaats van HTTP in de protocolstack was als volgt:
 "Tussen" de transportlaag en de applicatielaag zit hier dus nog een (optionele) extra "beveiligingslaag".
 Eigenlijk past het algemene TCP/IP-model hier niet zo goed op, maar meestal wordt TLS / SSL daar gesitueerd.
 
-HTTPS is eigenlijk HTTP bovenop die extra laag in plaats van rechtstreeks bovenop het transportlaagprotocol (TCP of QUIC).
+HTTPS is HTTP bovenop die extra laag in plaats van rechtstreeks bovenop het transportlaagprotocol (TCP of QUIC).
 In principe kunnen ook andere protocols op dezelfde manier beveiligd worden (bijvoorbeeld WSS voor "web sockets secure").
 
 Dit is een goede zaak, want HTTP wordt op de kabel voorgesteld als de bytes voor volgende ASCII-tekst:
@@ -62,13 +62,16 @@ Je hoeft de stappen in het filmpje niet allemaal uit het hoofd te leren, maar je
 
 ## Certificaten
 Een **certificaat** (of "SSL-certificaat" of "TLS-certificaat") is een digitaal bewijs dat uitgegeven wordt door een betrouwbare derde partij.
-Dit bewijs geeft (minimum) aan dat de partij die het certificaat voorlegt eigenaar is van het domein dat vermeld wordt in het certificaat.
+Dit bewijs geeft (minimum) aan dat diegene die het certificaat voorlegt eigenaar is van het domein dat vermeld wordt in het certificaat.
 Als je bijvoorbeeld naar `www.ap.be` surft, ontvang je een certificaat voor dat domein.
-Dan weet je dat informatie die je terugstuurt enkel gelezen kan worden door de eigenaar van `www.ap.be`.
+Dat zou ondertekend kunnen zijn door bijvoorbeeld Microsoft.
+Dan weet je dat Microsoft je garandeert dat de site die je op dat moment te zien krijgt ook echt geregistreerd staat onder `www.ap.be`.
+Tenzij Microsoft zich vergist, is een "man in the middle" dus niet mogelijk.
 
-Je besturingssysteem (of browser) gaat er vanzelf van uit dat informatie die ondertekend is door Microsoft / Apple / Google / ... (kies maar) betrouwbare informatie is.
-Als Microsoft / Apple / Google / ... belooft dat een bepaalde website is, moet je dat met andere woorden geloven.
+Je besturingssysteem (of browser) gaat er vanzelf van uit dat informatie die ondertekend is door Microsoft / Apple / Google / ... (kies maar) betrouwbaar is.
 Het systeem van certificaten veronderstelt dat er altijd zo'n **root certificate authority** is, iemand die betrouwbare certificaten aflevert.
+Er bestaan ook lagere **certificate authorities** (of **CA's**), dus ondernemingen die certificaten mogen uitgeven maar niet automatisch door je besturingssysteem / browser betrouwd worden.
+Zij kunnen bewijzen dat ze betrouwbaar zijn door een certificaat voor te leggen dat ze zelf bij een grotere provider hebben aangeschaft.
 
 Certificaten bestaan in verschillende types:
 
@@ -79,5 +82,13 @@ Certificaten bestaan in verschillende types:
 Naast deze types zijn er ook speciale certificaten, zoals wildcard-certificaten die geldig zijn voor alle subdomeinen van een bepaald domein, en multi-domein certificaten die meerdere domeinen en subdomeinen kunnen beveiligen met één certificaat.
 
 In het algemeen geldt dat "domain validated" certificaten het goedkoopst zijn.
-Ze kunnen ook automatisch gegenereerd worden (bijvoorbeeld via Letsencrypt) zonder menselijke tussenkomst, want ze controleren eigenlijk alleen een database met geregistreerde URL's.
+Ze kunnen ook automatisch gegenereerd worden (bijvoorbeeld via Letsencrypt) zonder menselijke tussenkomst, want ze controleren eigenlijk alleen een database met geregistreerde URL's (het zogenaamde "DNS"-systeem).
+Ze kunnen met andere woorden garanderen dat de website die je ziet bijvoorbeeld echt wel `www.ap.be` is, maar niet dat `www.ap.be` ook toebehoort aan de organisatie AP.
 De andere types vereisen menselijke tussenkomst en kosten dus een pak meer.
+
+Als een website een certificaat kan voorleggen, zie je een slotje in de browserbalk.
+Als dat niet gaat, zie je vaak een waarschuwing.
+Eén type om voor op te letten is een **self-signed** certificate.
+Dit is een certificaat dat uiteindelijk niet teruggaat tot een root CA.
+Iemand heeft het met andere woorden ondertekend, maar er is geen garantie dat die partij betrouwbaar is.
+Het kan soms nuttig zijn om mee te testen, maar eigenlijk is het waardeloos.

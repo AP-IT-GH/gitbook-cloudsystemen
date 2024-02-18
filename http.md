@@ -28,6 +28,7 @@ Wanneer HTTP gebruikt wordt om API's te raadplegen, wordt de data meestal als JS
 In de protocolstapel wordt HTTP als volgt gesitueerd:
 
 ![HTTP in de protocolstack](./images/http_in_stack.svg)
+
 TLS/SSL laten we voorlopig buiten beschouwing.
 Een **web server** luistert op een bepaalde poort (meestal 80 of 443) naar inkomende TCP-segmenten (of QUIC-segmenten in het geval van HTTP/3).
 De payload van deze segmenten wordt uitgepakt en wordt dan onderzocht en afgehandeld door de web server.
@@ -46,9 +47,11 @@ Het voordeel van het gebruik van een statische web server is dat deze eenvoudig 
 Een browser die een bepaalde pagina bezoekt zal dan via HTTP zowel het HTML-bestand als de **embedded content** opvragen.
 
 ![Werking statische web server. Elk groen driehoekje duidt op de start van een nieuwe TCP-verbinding.](./images/statische-webserver.png)
+
 Onderstaande figuur toont hoe dit oorspronkelijk geïmplementeerd was in HTTP/1.0.
 
 ![niet-persistente HTTP connecties](./images/HTTP-non-persistent.png)
+
 In deze oorspronkelijke implementatie werd eerst de pagina opgehaald en werden dan één voor één afbeeldingen,... opgevraagd om zo de volledige pagina op te bouwen.
 
 In latere versies zijn technieken toegepast om de performantie te verbeteren.
