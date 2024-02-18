@@ -29,6 +29,7 @@ In de protocolstapel wordt HTTP als volgt gesitueerd:
 
 ![HTTP in de protocolstack](./images/http_in_stack.svg)
 
+
 TLS/SSL laten we voorlopig buiten beschouwing.
 Een **web server** luistert op een bepaalde poort (meestal 80 of 443) naar inkomende TCP-segmenten (of QUIC-segmenten in het geval van HTTP/3).
 De payload van deze segmenten wordt uitgepakt en wordt dan onderzocht en afgehandeld door de web server.
@@ -48,7 +49,7 @@ Een browser die een bepaalde pagina bezoekt zal dan via HTTP zowel het HTML-best
 
 ![Werking statische web server. Elk groen driehoekje duidt op de start van een nieuwe TCP-verbinding.](./images/statische-webserver.png)
 
-Onderstaande figuur toont hoe dit oorspronkelijk geïmplementeerd was in HTTP/1.0.
+Onderstaande figuur toont hoe dit oorspronkelijk geïmplementeerd was in HTTP/1.0:
 
 ![niet-persistente HTTP connecties](./images/HTTP-non-persistent.png)
 

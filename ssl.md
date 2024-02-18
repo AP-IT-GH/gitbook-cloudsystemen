@@ -92,3 +92,18 @@ Eén type om voor op te letten is een **self-signed** certificate.
 Dit is een certificaat dat uiteindelijk niet teruggaat tot een root CA.
 Iemand heeft het met andere woorden ondertekend, maar er is geen garantie dat die partij betrouwbaar is.
 Het kan soms nuttig zijn om mee te testen, maar eigenlijk is het waardeloos.
+
+### Een certificaat aanvragen
+Een Certificate Signing Request (CSR) is een stukje gegevens dat wordt gegenereerd door een entiteit die een SSL/TLS-certificaat wil verkrijgen van een CA.
+Dit CSR bevat informatie zoals de openbare sleutel van het certificaat, samen met identificatiegegevens zoals de organisatienaam, domeinnaam en andere relevante details.
+Het is in essentie een gestandaardiseerd formulier voor wie een certificaat wil aanvragen.
+
+Hierbij komen volgende stappen kijken:
+
+1. De entiteit genereert een CSR met behulp van een hulpprogramma voor SSL-certificaten op hun server. Dit kan bijvoorbeeld gebeuren met behulp van OpenSSL.
+2. Tijdens het genereren van de CSR moet de entiteit verschillende details verstrekken, zoals de organisatienaam (of naam van de aanvrager), het domein waarvoor het certificaat wordt aangevraagd, de locatie, enzovoort.
+3. Nadat de CSR is gegenereerd, wordt deze naar de CA gestuurd, samen met een verzoek om een SSL/TLS-certificaat voor de opgegeven domeinnaam te ondertekenen.
+4. De CA verifieert de ingediende CSR en de identiteit van de aanvrager. Het kan bijvoorbeeld dat de aanvrager een e-mail ontvangt op het domein waarvoor het certificaat wordt aangevraagd en moet reageren om het domeinbezit te verifiëren.
+5. Na succesvolle verificatie ondertekent de CA het certificaat met zijn eigen privésleutel, waardoor het SSL/TLS-certificaat wordt gegenereerd.
+6. De CA stuurt het ondertekende certificaat terug naar de entiteit.
+7. De entiteit installeert het ontvangen SSL/TLS-certificaat op zijn server, waardoor de website of service wordt beveiligd met SSL/TLS-encryptie.
