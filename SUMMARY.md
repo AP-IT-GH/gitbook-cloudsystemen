@@ -22,3 +22,4 @@
     * [cookies](cookies.md)
     * [proxy's](proxys.md)
   * [HTTPS/TLS/SSL](ssl.md)
+  * [DNS](dns.md)
