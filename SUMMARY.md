@@ -19,4 +19,6 @@
   * [Collision en broadcast domains](collision-broadcast-domains.md)
 * Applicatielaag
   * [HTTP](http.md)
+    * [cookies](cookies.md)
+    * [proxy's](proxys.md)
   * [HTTPS/TLS/SSL](ssl.md)
