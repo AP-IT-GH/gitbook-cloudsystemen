@@ -163,6 +163,11 @@ Je zou wel moeten weten wat het eerste cijfer van elke code betekent:
 
 Probeer in je eigen webapplicaties altijd de juiste foutcode te gebruiken wanneer er iets mis loopt.
 
+### `curl`
+Je kan makkelijk HTTP-verzoeken doen zonder een volledige browser te gebruiken via `curl`.
+Dit programma (dat je kan uitvoeren in Git bash) stuurt gewoon HTTP-verzoeken.
+De basissyntax is: `curl -X METHOD URL -H "HEADERNAAM1: HEADERWAARDE1" -H "HEADERNAAM2: HEADERWAARDE2" ...`.
+
 ### Pull model
 HTTP volgt een pull model: de client **moet eerst een vraag stellen** voor er data doorgestuurd wordt.
 Met andere woorden: de server kan zelf niet spontaan informatie naar de client sturen.
