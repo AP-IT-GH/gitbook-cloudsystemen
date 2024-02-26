@@ -29,6 +29,13 @@ Hieronder zie je een screenshot over het toevoegen van een subdomein via Afraid:
 ![subdomein toevoegen in Afraid](./images/voorbeeld-afraid-dns.png)
 Een meer uitgebreide uitleg krijg je in volgend filmpje: [filmpje](https://www.youtube.com/watch?v=dm8i4IFTA7k)
 
+## Controle
+Omdat DNS een gedistribueerd systeem is met veel caching, kan het even duren vooraleer aanpassingen overal op het Internet zichtbaar zijn.
+Om te controleren hoe goed je DNS-gegevens verspreid zijn over verschillende name servers, kan je volgende website gebruiken: [What's my DNS](https://www.whatsmydns.net/)
+Op deze website geef je een DNS-record in en krijg je te zien of dit record aanwezig is in verschillende name servers.
+
+![propagatie DNS-record](./images/propagatie-dns-record.png)
+
 ## TLS toevoegen
 Wanneer een domeinnaam geregistreerd is in DNS, kan je een certificaat aanvragen.
 Sommige providers hebben hier ingebouwde ondersteuning voor.
@@ -38,5 +45,9 @@ In het algemene geval (bijvoorbeeld als je een eigen web server op een VPS host)
 Dan kan je zelf gebruik maken van [LetsEncrypt](https://letsencrypt.org/getting-started/).
 
 Met "shell access" wordt bedoeld dat je een terminal mag gebruiken.
-In dat geval ga je naar de website van [CertBot](https://certbot.eff.org/instructions),
+In dat geval ga je naar de website van [Certbot](https://certbot.eff.org/instructions),
 selecteer je het type web server dat je gebruikt en je besturingssysteem.
+
+Dan krijg je instructies voor de installatie van Certbot.
+Een groot voordeel van Certbot (of gelijkaardige tools) is dat deze je certificaten automatisch vernieuwt.
+Je moet de installatie dus maar één keer doorlopen, daarna zal je steeds een geldig certificaat hebben.
