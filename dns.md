@@ -28,5 +28,3 @@ Een name server houdt allerlei types DNS-records bij. Voor applicatieprogrammeur
 - NS record
 
 Details van deze recordtypes vind je op volgende pagina: [details](https://www.cloudflare.com/learning/dns/dns-records/)
-
-## Koppeling aan TLS

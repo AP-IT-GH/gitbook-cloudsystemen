@@ -5,8 +5,8 @@
   * [Wat is een computernetwerk?](computernetwerk.md)
   * [Basisbegrippen](basisbegrippen.md)
   * [Circuit en packet switching](circuit-packet-switching.md)
-  * [ping](ping.md)
-  * [traceroute](traceroute.md)
+  * [Ping](ping.md)
+  * [Traceroute](traceroute.md)
   * [Wireshark](wireshark.md)
   * [Packet Tracer](packettracer.md)
 * Netwerkmodellen
@@ -19,7 +19,8 @@
   * [Collision en broadcast domains](collision-broadcast-domains.md)
 * Applicatielaag
   * [HTTP](http.md)
-    * [cookies](cookies.md)
-    * [proxy's](proxys.md)
+    * [Cookies](cookies.md)
+    * [Proxy's](proxys.md)
   * [HTTPS/TLS/SSL](ssl.md)
   * [DNS](dns.md)
+    * [Eigen domein registreren](eigendomein.md)
