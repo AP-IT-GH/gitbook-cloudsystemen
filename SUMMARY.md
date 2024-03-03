@@ -24,3 +24,4 @@
   * [HTTPS/TLS/SSL](ssl.md)
   * [DNS](dns.md)
     * [Eigen domein registreren](eigendomein.md)
+  * [SSH](ssh.md)
