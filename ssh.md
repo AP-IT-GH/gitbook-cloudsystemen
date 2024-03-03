@@ -16,6 +16,7 @@ Aanmelden via SSH doe je op één van twee manieren, maar de remote hoeft ze nie
 2. Via een sleutelpaar. Hierbij bewijs je, door middel van asymmetrische encryptie, dat je beschikt over informatie die enkel een toegelaten gebruiker zou mogen bezitten. Dit is vaak makkelijker en veiliger dan een wachtwoord.
 
 SSH werkt alleen als je op je eigen machine beschikt over een SSH client en als de remote beschikt over een SSH server.
+Je beschikt sowieso over een SSH client als je Git Bash gebruikt.
 
 SSH komt ook van pas voor andere vormen van veilige communicatie.
 Zo kunnen operaties in Git op SSH steunen.
@@ -84,3 +85,8 @@ Merk op dat hier de UNIX-conventie voor paden naar bestanden wordt gebruikt. Het
 
 ### ssh-copy-id
 `ssh-copy-id` is een kleine extensie van `scp`. Zoals eerder vermeld bevat `authorized_keys` gekende publieke sleutels. Dit commando kopieert een publieke sleutel (zoals `scp`) maar plakt hem dan meteen in dat bestand `authorized_keys`. Het is dus niet essentieel, want je zou dit ook met de hand kunnen doen, maar het spaart wel een beetje tijd uit.
+
+## Details
+SSH servers luisteren standaard naar poort 22.
+Het is weliswaar mogelijk om een andere poort te kiezen.
+In dat geval moet je deze meegeven in het client commando of invullen in de file `config`.
