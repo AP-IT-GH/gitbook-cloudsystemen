@@ -47,6 +47,9 @@ Als het resultaat het netwerk op die rij is, kan de regel worden toegepast.
 Als er meerdere regels van toepassing zijn, wordt de meest specifieke (d.w.z. de regel met netmasker met het meeste 1'tjes) toegepast.
 Als er geen gewone regels van toepassing zijn, wordt er een default gekozen.
 
+Onderstaande opstelling toont dit in Packet Tracer:
+
+![routeringstabel van de centrale router](./images/statische-routering.png)
 
 Routers kunnen ofwel manueel geconfigureerd worden, ofwel automatisch via gespecialiseerde protocols die je als programmeur niet hoeft te kennen.
 

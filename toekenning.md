@@ -18,6 +18,10 @@ Als je een adres ziet dat binnen deze netwerken valt, kan je het dus niet bereik
 Als je op een van je toestellen thuis je IP-adres opvraagt, zal normaal gezien een adres in één van deze adresbereiken zien.
 Je echte publieke IP-adres kan je bijvoorbeeld achterhalen via de settingspagina van Telenet of Proximus.
 
+Daarnaast is er nog een adresbereik gereserveerd: `127.0.0.0/8`.
+Dit hele bereik geeft "localhost" of "de huidige machine" aan.
+Meestal wordt `127.0.0.1` gebruikt, maar je kan de laatste byte variëren.
+
 ## Verdeling
 Routering is een hiërarchisch gebeuren en het beheer van adressen is dat ook.
 Een organisatie (zoals een ISP) koopt bij de overkoepelende beheersorganisatie IANA IP-adressen aan in grote blokken.
