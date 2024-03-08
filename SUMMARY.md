@@ -29,3 +29,8 @@
   * [UDP](udp.md)
   * [TCP](tcp.md)
   * [port forwarding](portforwarding.md)
+* [Netwerklaag](netwerklaag.md)
+  * IPv4
+    * [structuur adressen](ipv4structuur.md)
+    * [routers](routers.md)
+    * [toekenning](toekenning.md)
