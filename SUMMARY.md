@@ -25,3 +25,7 @@
   * [DNS](dns.md)
     * [Eigen domein registreren](eigendomein.md)
   * [SSH](ssh.md)
+* [Transportlaag](transportlaag.md)
+  * [UDP](udp.md)
+  * [TCP](tcp.md)
+  * [port forwarding](portforwarding.md)
