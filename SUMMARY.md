@@ -34,3 +34,5 @@
     * [structuur adressen](ipv4structuur.md)
     * [routers](routers.md)
     * [toekenning](toekenning.md)
+    * [NAT/PAT](nat.md)
+  * [basis IPv6](ipv6.md)
