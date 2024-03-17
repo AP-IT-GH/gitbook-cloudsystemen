@@ -18,7 +18,7 @@ De Dockerfile is essentieel voor het automatiseren van het bouwproces van Docker
 
 Stel dat we een eenvoudige Node.js-webapplicatie willen bouwen die "**Hello World**" in de console logt.&#x20;
 
-<figure><img src="../.gitbook/images/docker/image (9).png" alt=""><figcaption><p>Simpele node applicatie</p></figcaption></figure>
+<figure><img src="../images/docker/image (9).png" alt=""><figcaption><p>Simpele node applicatie</p></figcaption></figure>
 
 #### Hier is een voorbeeld van hoe we een Dockerfile kunnen maken voor dit project:
 
@@ -66,6 +66,6 @@ docker run my-node-app
 
 Dit zal een nieuwe container opstarten en de code van onze Node.js-applicatie uitvoeren.
 
-<figure><img src="../.gitbook/images/docker/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/docker/image (2).png" alt=""><figcaption></figcaption></figure>
 
 Samengevat, bouwt de Dockerfile een Docker-container die de Node.js-applicatie bevat en deze uitvoert wanneer de container opgestart wordt.

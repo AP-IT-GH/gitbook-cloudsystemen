@@ -12,7 +12,7 @@ Docker Compose is een tool voor het definiëren en uitvoeren van multi-container
 
 Een applicatie kan bestaan uit meerdere containers waarop verschillende services worden uitgevoerd. Het kan vervelend zijn om containers handmatig te starten en te beheren, dus heeft Docker een handige tool gemaakt die het proces versnelt: Docker Compose.
 
-<figure><img src="../../.gitbook/images/docker/image (4) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../images/docker/image (4) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Met Docker Compose kan je bijvoorbeeld een webapplicatie definiëren die bestaat uit een webcontainer en een databasecontainer. Met een enkele opdracht kun je deze containers tegelijk starten, communiceren en beheren. Hierdoor is het eenvoudiger om complexe applicaties op te zetten en uit te voeren, zonder de noodzaak om veel commandoregels of scripts te schrijven.
 

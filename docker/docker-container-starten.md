@@ -10,7 +10,7 @@ In deze zelfstudie zal je gebruik maken van de image "[denising/hallo-student](h
 
 Het commando `docker images` geeft een lijst weer met de lokaal geïnstalleerde docker images.
 
-<figure><img src="../.gitbook/images/docker/image (5) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/docker/image (5) (4).png" alt=""><figcaption></figcaption></figure>
 
 In dit voorbeeld zal je de image denising/hallo-student binnenhalen (van Docker Hub) met behulp van het commando `docker pull`. Kopieer de code hieronder en plak het in je terminal:
 
@@ -20,7 +20,7 @@ docker pull denising/hallo-student:latest
 
 Als je nu opnieuw `docker images` uitvoert zal je zien dat denising/hallo-student er tussen staat.
 
-<figure><img src="../.gitbook/images/docker/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/docker/image (8).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Je kan je lokale images ook raadplegen in Docker Desktop -> Images.
@@ -37,13 +37,13 @@ docker run denising/hallo-student
 * `docker run` is het commando om een nieuwe container te starten
 * `denising/hallo-student` is de naam van de container-image die je wilt opstarten.
 
-<figure><img src="../.gitbook/images/docker/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/docker/image (15).png" alt=""><figcaption></figcaption></figure>
 
 ### Stap 3: verwijderen van een container
 
 Het commando `docker ps -a` geeft een lijst weer van al je containers.
 
-<figure><img src="../.gitbook/images/docker/image (14) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/docker/image (14) (2).png" alt=""><figcaption></figcaption></figure>
 
 Indien je een container wilt verwijderen kan je het commando `docker rm CONTAINER_NAME` of `docker rm CONTAINER_ID` gebruiken.
 
@@ -53,7 +53,7 @@ Verwijder de container dat de image van denising/hallo-student gebruikt. Je kan 
 docker rm admiring_williamson
 ```
 
-<figure><img src="../.gitbook/images/docker/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/docker/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Docker run shortcut
 
@@ -68,7 +68,7 @@ docker run -d -p 80:80 docker/getting-started
 * `-d` is de optie voor detached mode, waarbij de container op de achtergrond wordt uitgevoerd.
 * `-p 80:80` is de optie voor het doorgeven van een poort, in dit geval wordt poort 80 op de host doorgestuurd naar poort 80 in de container.
 
-<figure><img src="../.gitbook/images/docker/image (2) (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../images/docker/image (2) (6).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 docker kan de image niet lokaal vinden, dus haalt het in de achtergrond de image op van Docker Hub.
