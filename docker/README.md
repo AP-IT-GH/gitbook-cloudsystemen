@@ -34,7 +34,7 @@ Omdat containers autonoom zijn, bieden ze een sterke isolatie, zodat ze andere a
 
 In tegenstelling tot virtuele machines (VM's) waarbij virtualisatie op hardwareniveau plaatsvindt, virtualiseren containers op de app-laag. Ze kunnen één machine gebruiken, de kernel ervan delen en het besturingssysteem virtualiseren om geïsoleerde processen uit te voeren. Dit maakt containers extreem licht van gewicht.
 
-<figure><img src="../.gitbook/images/docker/image (27).png" alt=""><figcaption><p>bron: <a href="https://phoenixnap.com/kb/docker-image-vs-container">https://phoenixnap.com/kb/docker-image-vs-container</a></p></figcaption></figure>
+<figure><img src="../images/docker/image (27).png" alt=""><figcaption><p>bron: <a href="https://phoenixnap.com/kb/docker-image-vs-container">https://phoenixnap.com/kb/docker-image-vs-container</a></p></figcaption></figure>
 
 ### Wat is een image?
 
