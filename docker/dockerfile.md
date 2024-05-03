@@ -67,5 +67,3 @@ docker run my-node-app
 Dit zal een nieuwe container opstarten en de code van onze Node.js-applicatie uitvoeren.
 
 <figure><img src="../images/docker/image (2).png" alt=""><figcaption></figcaption></figure>
-
-Samengevat, bouwt de Dockerfile een Docker-container die de Node.js-applicatie bevat en deze uitvoert wanneer de container opgestart wordt.
