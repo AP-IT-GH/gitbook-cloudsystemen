@@ -77,6 +77,7 @@ Voer dan uit: `sudo cat /var/lib/faasd/secrets/basic-auth-password; echo`. Dit t
 
 - OPENFAAS_PASSWORD (met als waarde het wachtwoord)
 - OPENFAAS_URL (met als waarde `http://172....:8080`, waarbij je opnieuw het interne IP aanvult en het protocol laat staan)
+- OPENFAAS_PREFIX (met als waarde je usernaam op Docker Hub)
 
 Eens de variabelen zijn aangemaakt, kan je ze in een nieuwe Git Bash opvragen via `echo $OPENFAAS_PASSWORD` en `echo $OPENFAAS_URL`.
 
