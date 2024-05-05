@@ -46,14 +46,12 @@
     * [docker compose commands](docker/docker-compose/docker-compose-commands.md)
 * Serverless
   * [Wat is serverless computing?](serverless/wat-is-serverless.md)
+  (config.yml)
   * [Installatie faasd](serverless/installatie-faasd.md)
-  * [faasd gebruiken](serverless/faasd-gebruiken/README.md)
+  * faasd gebruiken
     * [web UI](serverless/faasd-gebruiken/web-ui.md)
     * [CLI](serverless/faasd-gebruiken/cli.md)
-    * [lokale database toevoegen](serverless/faasd-gebruiken/lokale-database-toevoegen.md)
-  * [serverless functies schrijven](serverless/functies-schrijven/README.md)
+    * [lokale database](serverless/faasd-gebruiken/lokale-services-toevoegen.md)
+  * serverless functies schrijven
     * [hello world!](serverless/functies-schrijven/hello-world.md)
     * [programmeertechnieken](serverless/functies-schrijven/programmeertechnieken.md)
-    * [testen](serverless/functies-schrijven/testen.md)
-    * [CLI tools als functies](serverless/functies-schrijven/cli-tools-als-functies.md)
-    * [CI/CD met Github Actions](serverless/functies-schrijven/ci-cd-ga.md)

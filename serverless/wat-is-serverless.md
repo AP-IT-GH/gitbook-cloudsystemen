@@ -3,7 +3,7 @@ De term "serverless computing" verwijst (verwarrend genoeg) naar een specifiek c
 
 Dit is wat abstract, dus vergelijk het met een klassieke client-server applicatie. Wanneer we daar iets willen laten uitvoeren door een server, schrijven we typisch een API. Dit doen we (al dan niet rechtstreeks) met behulp van een web framework zoals Express, Flask,... Voor elke functie die we willen aanbieden, schrijven we een handler. Dan zoeken we een hosting service die dat framework ondersteunt of huren we een VPS waarop we alle dependencies van het framework installeren.
 
-In "serverless" computing is er geen (zichtbaar) framework. We kiezen een template met ondersteunde omgevingen (bijvoorbeeld NodeJS), schrijven een op zichzelf staande functie en deployen die ene functie op zo'n manier dat ze via HTTP kan worden opgeroepen. We gebruiken hiervoor een gespecialiseerd platform zoals AWS Lambda, Azure Functions, Google Cloud Functions of OpenFaaS ("functions as a service").
+In "serverless" computing is er geen (zichtbaar) framework. We kiezen een template met ondersteunde omgevingen (bijvoorbeeld NodeJS), schrijven een op zichzelf staande functie en deployen die ene functie op zo'n manier dat ze via HTTP (en dus ook via web hooks) kan worden opgeroepen. We gebruiken hiervoor een gespecialiseerd platform zoals AWS Lambda, Azure Functions, Google Cloud Functions of OpenFaaS ("functions as a service"). In deze cursus gebruiken we faasd, een afgeslankte versie van OpenFaaS. De concepten zijn vlot overdraagbaar naar andere platformen en vereiste wijzigingen zijn beperkt.
 
 Serverless functions moeten "stateless" zijn, zoals ook het HTTP-protocol dat is. Ook hier is het wel mogelijk data op te slaan door middel van extra mechanismen als databanken,... maar functies mogen bijvoorbeeld geen variabelen aanpassen in een omringende scope.
 
@@ -19,7 +19,7 @@ Serverless functies hebben een heel ander model voor kosten en schaalbaarheid da
 
 ### Nadelen
 - omdat er niet altijd een container actief is, moet er soms een nieuwe gestart worden en dat kan een seconde of twee duren
-- je moet je code misschien anders schrijven (ze moet bijvoorbeeld stateless zijn en mag geen platformspecifieke truukjes gebruiken)
-- pay-as-you-go kan duurder zijn, soms is het beter een specifieke capaciteit te huren
+- je moet je code misschien anders schrijven (ze moet bijvoorbeeld stateless zijn en mag geen platformspecifieke truukjes gebruiken; deze structuur kan ook wel tot een eleganter ontwerp leiden)
+- pay-as-you-go kan duurder zijn, in het bijzonder wanneer verkeer een stabiele stroom vormt
 
 Serverless functies zijn niet "de nieuwe manier om alles te doen", maar ze spelen wel een grote rol in cloud applicaties en zijn voor sommige toepassingen erg handig.
