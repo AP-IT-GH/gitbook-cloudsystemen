@@ -67,7 +67,7 @@ runcmd:
 Deze file volgt een algemene standaard die ook bij online cloud providers wordt geïmplementeerd. Je kan dit soort file dus gebruiken om de setup van een VPS te automatiseren.
 {% endhint %}
 
-Start dan (in de directory met het nieuwe bestand) een VM met dit commando: `multipass launch --disk 24G --memory 8G --cpus 2 --name faasd --cloud-init cloud-config.txt`
+Start dan (in de directory met het nieuwe bestand) een VM met dit commando: `multipass launch --disk 24G --memory 4G --cpus 2 --name faasd --cloud-init cloud-config.txt`
 
 Als alles in orde is, zie je de VM wanneer je het commando `multipass ls` uitvoert. Hij beschikt ook over een intern IP-adres dat begint met `172`.
 
