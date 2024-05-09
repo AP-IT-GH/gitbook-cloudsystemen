@@ -99,6 +99,7 @@ Als je om een of andere reden rechtstreeks op de VM wil werken, let er dan op da
 Sluit de machine (via het kruisje), kies voor "send the shutdown signal", rechtsklik er op in het hoofdvenster van VirtualBox, ga naar "Network", kies "Adapter 1" → "Advanced" → "Port forwarding". Vul in met volgende settings (maar gebruik het IP uit de vorige stap als dat anders is in jouw geval):
 
 ![port forwarding faasd](../images/serverless/portforwardingfaasd.png)
+
 Eventueel kan je een andere poort gebruiken voor de web interface. Dan mag je **host** port 8080 vervangen door iets anders. Je moet daar dan wel rekening houden wanneer je volgende omgevingsvariabelen instelt:
 
 - OPENFAAS_PASSWORD (met als waarde `7FdcjDXx2v5xwZLZR4wXRyDX9DT9BWKHAnd9UOrXgb2PC5rjSGfyBnAe4mkktkj`)
