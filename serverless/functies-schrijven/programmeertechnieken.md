@@ -98,6 +98,59 @@ describe('typisch één use case hier', async function() {
 ### Testomgeving afbakenen
 Soms moet je code zich anders gedragen tijdens unit testen, bijvoorbeeld door geen echte HTTP queries uit te voeren maar ingeblikte data te gebruiken. Dat kan je bijvoorbeeld doen door een omgevingsvariabele in te stellen die aangeeft of je in een testomgeving aan het uitvoeren bent. In Bash shellcommando's kan je dit vlak voor de commando's zelf, dus bijvoorbeeld `NODE_ENV=test mocha test.js`. Indien deze variabele al bestond in een bredere omgeving, maskeert de meer specifieke waarde de algemenere waarde.
 
+### Objectgeoriënteerde mocks
+{% hint style="warning" %}
+Dit is achtergrondinformatie. Er wordt niet verondersteld dat je deze zaken kent, maar in dit geval is het goed om te weten dat je het proces kan stroomlijnen.
+{% end hint %}
+
+Je kan het simuleren van contexts en events vereenvoudigen met volgende JavaScript klassen:
+
+```javascript
+class FunctionEvent {
+    constructor(req) {
+        this.body = req.body;
+        this.headers = req.headers;
+        this.method = req.method;
+        this.query = req.query;
+        this.path = req.path;
+    }
+}
+
+class FunctionContext {
+    constructor(cb) {
+        this.statusValue = 200;
+        this.cb = cb;
+        this.headerValues = {};
+        this.cbCalled = 0;
+    }
+    status(value) {
+        if (!value) {
+            return this.statusValue;
+        }
+        this.statusValue = value;
+        return this;
+    }
+    headers(value) {
+        if (!value) {
+            return this.headerValues;
+        }
+        this.headerValues = value;
+        return this;
+    }
+    succeed(value) {
+        let err;
+        this.cbCalled++;
+        this.data = value;
+        this.cb(err, value);
+    }
+    fail(value) {
+        let message;
+        this.cbCalled++;
+        this.cb(value, message);
+    }
+}
+```
+
 ## Bouwen in een pipeline
 Je hoeft je functies niet lokaal te bouwen.
 Het is heel gebruikelijk om functies te bouwen in een continuous integration pipeline, bijvoorbeeld wanneer een nieuwe versie op de `main` branch wordt geplaatst.
