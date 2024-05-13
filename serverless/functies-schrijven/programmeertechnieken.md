@@ -48,7 +48,7 @@ Hierbij worden de nulletjes en eentjes in je binair bestand in groepjes van zes 
 De exacte werking is hier minder belangrijk, maar je moet vooral dit onthouden:
 
 1. base 64 geëncodeerde data kan als plain text verstuurd worden
-2. je kan in Bash een bestand converteren naar base 64 met `base64 NAAM_VAN_BINAIR_BESTAND` en je kan een base 64 bestand decoderen (en opslaan) met `base64 --decode NAAM_VAN_PLAIN_TEXT_BESTAND > NAAM_VAN_BINAIR_BESTAND` 
+2. je kan in Bash een bestand converteren naar een base 64 string met `base64 -w 0 NAAM_VAN_BINAIR_BESTAND` en je kan een base 64 bestand decoderen (en opslaan) met `base64 --decode NAAM_VAN_PLAIN_TEXT_BESTAND > NAAM_VAN_BINAIR_BESTAND` 
 3. base 64 geëncodeerde data is iets groter dan de oorspronkelijke binaire data (gemiddeld 1/3 groter)
 
 ### Werken met base 64 in JavaScript
