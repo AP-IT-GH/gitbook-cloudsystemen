@@ -55,3 +55,4 @@
   * serverless functies schrijven
     * [hello world!](serverless/functies-schrijven/hello-world.md)
     * [programmeertechnieken](serverless/functies-schrijven/programmeertechnieken.md)
+  * [Project Fireship](serverless/project-fireship/README.md)

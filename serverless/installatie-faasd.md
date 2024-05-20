@@ -18,6 +18,8 @@ Hiervoor moet je volgende stappen ondernemen:
     3. `./hack/install.sh`
     4. `sudo systemctl start faasd`
     5. noteer de uitvoer van `sudo cat /var/lib/faasd/secrets/basic-auth-password ; echo` (dit is je wachtwoord voor de faasd admin user)
+    6. zoek binnen de WSL-terminal je IP-adres op: `ip addr show eth0 | grep inet` (dit begint met `172`)
+    7. maak een omgevingsvariabele (voor Windows) `OPENFAAS_URL` met de waarde `172....:8080` (waarbij je de rest van het IPv4-adres aanvult op basis van de vorige stap
 5. nu zou je `localhost:8080` moeten kunnen bezoeken
 
 {% hint style="info" %}
@@ -35,10 +37,10 @@ Sluit de machine (via het kruisje), kies voor "send the shutdown signal", rechts
 
 ![port forwarding faasd](../images/serverless/portforwardingfaasd.png)
 
-Eventueel kan je een andere poort gebruiken voor de web interface. Dan mag je **host** port 8080 vervangen door iets anders. Je moet daar dan wel rekening houden wanneer je volgende omgevingsvariabelen instelt:
+Stel ook volgende omgevingsvariabelen in:
 
 - OPENFAAS_PASSWORD (met als waarde `7FdcjDXx2v5xwZLZR4wXRyDX9DT9BWKHAnd9UOrXgb2PC5rjSGfyBnAe4mkktkj`)
-- OPENFAAS_URL (met als waarde `http://127.0.0.1:8080`, wat je eventueel moet aanpassen zodat het overeenstemt met je port forwarding regels)
+- OPENFAAS_URL (met als waarde `http://127.0.0.1:8080`)
 
 {% hint style="warning" %}
 Je VM moet op zijn minst aan staan als je faasd wil gebruiken. Je hoeft niet in te loggen op de VM. Sluit hem steeds correct af, anders bestaat het risico dat er files corrupt worden. Dan moet je hem opnieuw installeren.
