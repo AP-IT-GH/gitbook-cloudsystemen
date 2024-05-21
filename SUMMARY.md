@@ -52,6 +52,7 @@
     * [web UI](serverless/faasd-gebruiken/web-ui.md)
     * [CLI](serverless/faasd-gebruiken/cli.md)
     * [lokale database](serverless/faasd-gebruiken/lokale-services-toevoegen.md)
+    * [Apple silicon](serverless/faasd-gebruiken/apple-silicon.md)
   * serverless functies schrijven
     * [hello world!](serverless/functies-schrijven/hello-world.md)
     * [programmeertechnieken](serverless/functies-schrijven/programmeertechnieken.md)

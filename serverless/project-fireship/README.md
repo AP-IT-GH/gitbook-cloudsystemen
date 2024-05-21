@@ -4,11 +4,16 @@ Om ervaring op te doen met serverless functies, zullen we een project maken geba
 {% embed url="https://www.youtube.com/embed/cw34KMPSt4k?si=jSe2HC6LYWmeH-I7" %}
 
 ## Aanpak
-Wij zullen voor dit project faasd gebruiken in plaats van diensten van Amazon of Google. Dat betekent dat we hier en daar wat meer *low level* moeten gaan, maar dat biedt ook extra inzicht. We zullen uiteindelijk simpelere afbeeldingsfilters gebruiken. We doen dat niet omdat transparantie moeilijker te implementeren is (de werkwijze is exact dezelfde), maar wel omdat deze functie een groot AI-model gebruikt dat leidt tot een onredelijk grote image. Dat levert een trage doorlooptijd, problemen wanneer faasd over te weinig resources beschikt enzovoort.
+Wij zullen voor dit project faasd gebruiken in plaats van diensten van Amazon of Google. Dat betekent dat we hier en daar wat meer *low level* moeten gaan, maar dat biedt ook extra inzicht. We zullen uiteindelijk simpelere afbeeldingsfilters gebruiken. We doen dat niet omdat transparantie moeilijker te implementeren is (de werkwijze is exact dezelfde), maar wel omdat deze functie een groot AI-model gebruikt dat leidt tot een onredelijk grote Docker image. Dat levert een trage doorlooptijd, problemen wanneer faasd over te weinig resources beschikt enzovoort.
+
+{% hint style="info" %}
+Onderstaande stappen vertellen vooral **wat** je moet doen. Gebruik de andere pagina's rond serverless (en je creativiteit) om te achterhalen **hoe** je alles gaat doen.
+{% endhint %}
+
 
 {% hint style="info" %}
 Voor de geïnteresseerde / sceptische lezer: in [deze repository](https://github.com/v-nys/serverlesstransparencypython) staat een serverless functie die de achtergrond verwijdert wanneer dezelfde inputs worden gegeven waarop we de greyscale filter zullen toepassen. De functie geeft ook de output in hetzelfde formaat terug.
-{% end hint %}
+{% endhint %}
 
 ## Stappenplan
 
@@ -55,7 +60,7 @@ Als je nu je functie bouwt (met `faas-cli -f greyscale.yml build`) zou je moeten
 ### Stap 3
 Sommige van de "officiële" functies van faasd zoals colorize verwachten een URL voor een afbeelding. Dat is niet zo handig als je functies wil combineren. Functies kunnen in principe ook opgeroepen worden met "gewone" binaire data, maar die is niet altijd makkelijk weer te geven en vereist soms wat extra workarounds. Daarom zullen we onze functie zo schrijven dat ze base 64-geëncodeerde data aanneemt en teruggeeft.
 
-![../../images/serverless/2pixels.png]
+![afbeelding van 2 pixels](../../images/serverless/2pixels.png)
 
 Gebruik (via Git Bash) het programma `base64` om onderstaande afbeelding te encoderen.
 Pas je functie aan zodat ze de request body gewoonweg letterlijk teruggeeft en roep ze dan op met de base64-geëncodeerde file als input.
