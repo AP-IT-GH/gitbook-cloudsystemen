@@ -26,5 +26,5 @@ Ik beschik niet over een eigen Mac om dit uit te proberen, dus laat zo snel moge
 
 ## Optie 2: Github Actions
 
-Indien optie 1 niet lukt, kan je een Github Action maken om je functie te bouwen.
-Zet dan de gateway en het wachtwoord in een secret en gebruik de instructies op [deze pagina](../functies-schrijven/programmeertechnieken.md#bouwen-in-een-pipeline).
+Indien optie 1 niet lukt, kan je Github Actions gebruiken om je functie te bouwen.
+Zet dan de gateway en het wachtwoord in een secret en gebruik de instructies op [deze pagina](../functies-schrijven/programmeertechnieken.md#bouwen-in-een-pipeline). Voeg de deploy stap toe zoals bij buildx.
