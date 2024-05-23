@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Inleiding](README.md)
-* Overzicht computernetwerken
+* [Overzicht computernetwerken](overzicht-computernetwerken/README.md)
   * [Wat is een computernetwerk?](computernetwerk.md)
   * [Basisbegrippen](basisbegrippen.md)
   * [Circuit en packet switching](circuit-packet-switching.md)
@@ -9,7 +9,7 @@
   * [Traceroute](traceroute.md)
   * [Wireshark](wireshark.md)
   * [Packet Tracer](packettracer.md)
-* Netwerkmodellen
+* [Netwerkmodellen](netwerkmodellen/README.md)
   * [Types verbindingen](verbindingen.md)
   * [Lagenschema's](lagenschemas.md)
     * [OSI](osi-model.md)
@@ -17,7 +17,7 @@
   * [Overzicht netwerkcomponenten](overzicht-netwerkcomponenten.md)
   * [Architecturen](architecturen.md)
   * [Collision en broadcast domains](collision-broadcast-domains.md)
-* Applicatielaag
+* [Applicatielaag](applicatielaag/README.md)
   * [HTTP](http.md)
     * [Cookies](cookies.md)
     * [Proxy's](proxys.md)
@@ -30,7 +30,7 @@
   * [TCP](tcp.md)
   * [port forwarding](portforwarding.md)
 * [Netwerklaag](netwerklaag.md)
-  * IPv4
+  * [IPv4](netwerklaag/ipv4/README.md)
     * [structuur adressen](ipv4structuur.md)
     * [routers](routers.md)
     * [toekenning](toekenning.md)
@@ -44,16 +44,15 @@
     * [installatie](docker/docker-compose/installatie.md)
     * [docker-compose.yml](docker/docker-compose/docker-compose.yml.md)
     * [docker compose commands](docker/docker-compose/docker-compose-commands.md)
-* Serverless
+* [Serverless](serverless/README.md)
   * [Wat is serverless computing?](serverless/wat-is-serverless.md)
-  (config.yml)
   * [Installatie faasd](serverless/installatie-faasd.md)
-  * faasd gebruiken
+  * [faasd gebruiken](serverless/faasd-gebruiken/README.md)
     * [web UI](serverless/faasd-gebruiken/web-ui.md)
     * [CLI](serverless/faasd-gebruiken/cli.md)
     * [lokale database](serverless/faasd-gebruiken/lokale-services-toevoegen.md)
     * [Apple silicon](serverless/faasd-gebruiken/apple-silicon.md)
-  * serverless functies schrijven
+  * [serverless functies schrijven](serverless/serverless-functies-schrijven/README.md)
     * [hello world!](serverless/functies-schrijven/hello-world.md)
     * [programmeertechnieken](serverless/functies-schrijven/programmeertechnieken.md)
   * [Project Fireship](serverless/project-fireship/README.md)
