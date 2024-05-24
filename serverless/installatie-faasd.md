@@ -26,6 +26,12 @@ Hiervoor moet je volgende stappen ondernemen:
 Met deze optie wordt geen database geïnstalleerd, maar in 2023-2024 zullen we deze niet gebruiken.
 {% end hint %}
 
+{% hint style="danger" %}
+Wanneer je faasd niet nodig hebt, mag je in een WSL-terminal (geen gewone Git Bash!) het commando `sudo systemctl stop faasd` uitvoeren. Dat kan resources uitsparen. Wanneer je faasd terug nodig hebt, doe je dan weer `sudo systemctl start faasd`, opnieuw in een WSL-terminal.
+{% end hint %}
+
+
+
 ## VirtualBox
 Je kan op [deze link](https://drive.google.com/file/d/1_wyy7ZevqV8NMh9yaHPu8S8t3_V-OkH-/view?usp=drive_link) een VirtualBox image downloaden die je kan importeren. Dat doe je in VirtualBox via File → Import appliance. Eens de machine geïmporteerd is, moet je hem opstarten. Je kan aanmelden met gebruikersnaam `ubuntu` en wachtwoord `ubuntu`. Bij het loginbericht staat een IPv4-adres. Waarschijnlijk is dit `10.0.2.15`, maar het kan anders zijn. Noteer dit.
 
