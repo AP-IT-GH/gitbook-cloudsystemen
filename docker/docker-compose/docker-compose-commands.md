@@ -6,6 +6,10 @@ description: De voornaamste docker compose commands.
 
 Nu we weten hoe we een docker-compose-bestand moeten maken, gaan we de meest voorkomende Docker Compose-opdrachten bekijken die we met onze bestanden kunnen gebruiken. Houd er rekening mee dat we alleen de meest gebruikte commando's zullen bespreken.
 
+{% hint style="info" %}
+ Omwille van platformverschillen kan het zijn dat je `docker-compose` of `docker compose` moet schrijven voor specifieke commando's.
+{% endhint %}
+
 ### docker-compose
 
 `docker-compose`: Elke Compose-opdracht begint met deze opdracht. Je kan ook `docker-compose --help` gebruiken om aanvullende informatie over argumenten en implementatiedetails te geven.

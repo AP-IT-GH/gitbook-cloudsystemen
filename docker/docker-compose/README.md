@@ -6,6 +6,8 @@ description: >-
 
 # Docker Compose
 
+Normaal gezien zou Docker Compose reeds op je systeem moeten staan omdat je Docker geïnstalleerd hebt.
+
 ## Wat is Docker Compose?
 
 Docker Compose is een tool voor het definiëren en uitvoeren van multi-container Docker-applicaties. Het maakt het mogelijk om een complete **stack** van services te definiëren in een enkel bestand, genaamd `docker-compose.yml`.
