@@ -128,7 +128,7 @@ providers:
 http:
   routers:
     to-whoami:
-      rule: "Host(`example.com`) && PathPrefix(`/whoami/`)"
+      rule: "Host(`example.localhost`) && PathPrefix(`/whoami/`)"
       middlewares:
         - test-user # zie onder
       service: whoami
