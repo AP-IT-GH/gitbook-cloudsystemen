@@ -109,6 +109,10 @@ Om Docker labels te kunnen gebruiken, delen we het Docker socket via een bind mo
 
 Onderstaand voorbeeld is een sjabloon, maar werkt nog niet volledig. Onderzoek hoe je het aan de praat krijgt!
 
+{% hint style="info" %}
+Eventueel haal je alles rond middleware weg, zowel uit het onderdeel rond de router als in de definitie van de middleware zelf. Als het zonder middleware lukt, kan je die daarna nog steeds toevoegen.
+{% endhint %}
+
 ## Statische configuratie
 ```yaml
 entryPoints:
