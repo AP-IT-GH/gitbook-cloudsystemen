@@ -18,6 +18,6 @@ Een "web hook" is eigenlijk een API call, zoals je die al kent. Het verschil zit
 
 Je vindt makkelijk een reeds verpakte action voor het uitvoeren van een web hook via de Github Actions marketplace. Je kan eigenlijk ook gewoon `curl` gebruiken. Alternatief kan je [webhooks zonder Actions](https://docs.github.com/en/webhooks/using-webhooks/creating-webhooks) gebruiken.
 
-Aan de ontvangerskant zet je dan een programma dat de eigenlijke applicatie herstart, bijvoorbeeld een klein Express script dat je buiten Docker runt en dat in staat is de applicatie te herstarten. Eventueel gebruik je hiervoor een library zoals [de NodeJS docker-compose package](https://www.npmjs.com/package/docker-compose).
+Aan de ontvangerskant zet je dan een programma dat de eigenlijke applicatie herstart, bijvoorbeeld een klein Express script dat je buiten je normale applicatiestack runt en dat in staat is de applicatie te herstarten. Eventueel gebruik je hiervoor een library zoals [de NodeJS docker-compose package](https://www.npmjs.com/package/docker-compose).
 
-Deze aanpak houdt niet in dat je SSH mogelijk maakt. Als iemand hier misbruik van kan maken, kan hij de applicatie herstarten en/of onbereikbaar maken, maar heeft hij niet meteen toegang tot het systeem.
+Deze aanpak houdt niet in dat je SSH mogelijk maakt. Als iemand hier misbruik van kan maken, kan hij de applicatie herstarten en/of onbereikbaar maken, maar heeft hij niet meteen toegang tot het systeem. Het is wel wat meer werk, omdat je de Express applicatie ook zal moeten beveiligen met op zijn minst HTTPS en een wachtwoord.
