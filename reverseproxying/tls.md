@@ -23,8 +23,8 @@ Traefik zelf biedt enkele stappenplannen aan om zelf TLS op te zetten. Je vindt 
 
 Je doet dit best als volgt:
 
-1. **Zorg alvast dat je een domeinnaam geregistreerd hebt.** Dat mag een gratis domeinnaam zijn. Als je een top-level domain wil, kan dat door een [Github Student Developer Pack](https://education.github.com/pack) aan te vragen. Dan kan je een domeinnaam aankopen en aan de kassa een korting invoeren zodat de totaalprijs 0 euro bedraagt.
-2. Zorg dat je het "basic example" op je server aan de praat krijgt.
+1. **Zorg alvast dat je een domeinnaam geregistreerd hebt.** Dat mag een gratis domeinnaam zijn. Als je een top-level domain wil, kan dat door een [Github Student Developer Pack](https://education.github.com/pack) aan te vragen. Dan kan je een domeinnaam aankopen en aan de kassa een korting invoeren zodat de totaalprijs 0 euro bedraagt. Om het top-level domain zelf te registreren in DNS, vul je als "subdomein" `@` in.
+2. Zorg dat je het "basic example" op je server aan de praat krijgt. Als je dit op een subdomein bereikbaar wil maken, moet je ook een A-record toevoegen voor dat subdomein.
 3. Commit je "basic example".
 4. Zorg dat je de versie met de TLS challenge of HTTP challenge aan de praat krijgt. **Gebruik eerst de staging server van LetsEncrypt. In het voorbeeld staat die nog in commentaar!**
 5. Controleer dat je de HTTPS-versie van je applicatie te zien krijgt met een "self-signed certificate". Dat leidt normaal tot een waarschuwing in je browser, maar dat is wat we hier willen.
