@@ -23,3 +23,7 @@ Je vindt makkelijk een reeds verpakte action voor het uitvoeren van een web hook
 Aan de ontvangerskant zet je dan een programma dat de eigenlijke applicatie herstart, bijvoorbeeld een klein Express script dat je buiten je normale applicatiestack runt en dat in staat is de applicatie te herstarten. Eventueel gebruik je hiervoor een library zoals [de NodeJS docker-compose package](https://www.npmjs.com/package/docker-compose).
 
 Deze aanpak houdt niet in dat je SSH mogelijk maakt. Als iemand hier misbruik van kan maken, kan hij de applicatie herstarten en/of onbereikbaar maken, maar heeft hij niet meteen toegang tot het systeem. Het is wel wat meer werk, omdat je de Express applicatie ook zal moeten beveiligen met op zijn minst HTTPS en een wachtwoord.
+
+{% hint style="info" %}
+Zelfs als deze kleine Express applicatie buiten Docker runt, kan je ze beveiligen door ze achter Traefik te plaatsen. Je kan namelijk `host.docker.internal` gebruiken om de hostmachine van een container te contacteren (niet `localhost`, want dat leidt naar de container zelf).
+{% endhint %}
