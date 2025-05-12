@@ -77,17 +77,21 @@ Deze omvat op zijn minst:
 De dynamische configuratie geeft al de rest: hoe wordt specifiek verkeer geïdentificeerd, waar moet het naartoe,... Je zal voorbeelden van deze configuratie in verschillende vormen tegenkomen, bijvoorbeeld in YAML:
 
 ```yaml
-## Dynamic configuration
-http:
-  routers:
-    my-router:
-      rule: "Path(`/foo`)"
-      service: service-foo
+http: # deze info is enkel van toepassing op HTTP-verkeer
+  routers: # hieronder kan je meerdere routers definiëren
+    my-router: # dit is de naam van één zo'n router
+      rule: "Host(`whoamiservice.localhost`)" # deze router is van toepassing als we dat domein bezoeken
+      service: service-foo # als hij van toepassing is, leidt de router naar deze achterliggende service
 ```
 
-Maar je kan dit even goed uitdrukken via een Docker label:
-```
+Maar je kan zoiets even goed uitdrukken via een Docker label:
+```yaml
+# deze router handelt verkeer af waarbij de domeinnaam whoamiservice.localhost is
+# je kan zo meerdere labels achter elkaar zetten
 - "traefik.http.routers.my-router.rule=Host(`whoamiservice.localhost`)"
+# je kan bijvoorbeeld nog extra verkeer afhandelen via:
+# - "traefik.http.routers.my-router.rule=Host(`otherservice.localhost`)"
+# dan werkt dezelfde router ook voor een ander domein
 ```
 
 Je zou hier nog een label kunnen verwachten:
@@ -115,25 +119,44 @@ Eventueel haal je alles rond middleware weg, zowel uit het onderdeel rond de rou
 
 ## Statische configuratie
 ```yaml
+# dit wordt allemaal vastgelegd bij opstart van Traefik
 entryPoints:
+  # "web" is de naam van een manier om Traefik te bereiken
   web:
+    # alle verkeer (TCP of UDP) dat naar poort 8081 gaat valt onder "web"
     address: :8081
+# dit is waar Traefik dynamische configuratie haalt
 providers:
+  # de file provider betekent dat er ergens een file is met routers,...
+  # de Docker provider betekent dat die informatie uit Docker labels gelezen wordt
+  # er zijn nog providers mogelijk
   file:
+    # dit pad kies je zelf, het leidt gewoon naar de file in kwestie
     filename: /path/to/dynamic/conf
 ```
 
 ## Dynamische configuratie
 ```yaml
+# onderstaande informatie is enkel van toepassing voor dit protocol
+# je komt op dit niveau ook "tls" tegen (dat omvat ook https), "tcp" en "udp"
 http:
-  routers:
-    to-whoami:
+  routers: # dus hier kan je routers onder definiëren
+    to-whoami: # dit is de naam van een router, mag je kiezen
+      # de router is van toepassing op verkeer zoals http://example.localhost/whoami
+      # maar niet op ander verkeer zoals example.localhost/whoareyou
+      # of example2.localhost/whoami
       rule: "Host(`example.localhost`) && PathPrefix(`/whoami/`)"
+      # dit voegt een extra stap toe
+      # test eens uit met middlewares: [] om het verschil te zien
       middlewares:
-        - test-user # zie onder
+        - test-user # zie onder, dit is de naam van een middleware
       service: whoami
+  # dit is een tussenstap voor HTTP-verkeer
   middlewares:
+    # naam van de middleware
     test-user:
+      # het soort middleware
+      # je vindt een boel mogelijkheden in de Traefik documentatie
       basicAuth:
         users:
         # dit is niet het wachtwoord, maar de hash
