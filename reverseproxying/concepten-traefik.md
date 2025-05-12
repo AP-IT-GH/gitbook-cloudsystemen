@@ -164,8 +164,14 @@ http:
         # dat kan in een httpd container
         - user:hashcode
   services:
+    # naam van een service kies je zelf
     whoami:
+      # een load balancer verdeelt inkomende requests over containers die hetzelfde programma runnen
+      # dit vermijdt overbelasting
+      # uit de docs: "each service has a load-balancer, even if there is only one server to forward traffic to"
       loadBalancer:
         servers:
+        # dit is een lijst met adressen voor die achterliggende containers
+        # dit kunnen IP-adressen zijn, maar in Docker Compose mogen het ook namen zijn
         - url: http://private/whoami-service
 ```
