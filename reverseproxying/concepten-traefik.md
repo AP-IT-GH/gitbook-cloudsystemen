@@ -15,7 +15,7 @@ Traefik heeft een aantal kernconcepten die je steeds in het achterhoofd moet hou
   - providers: waar Traefik zijn dynamische configuratie haalt
   - entrypoints: hoe Traefik bereikt kan worden, in essentie een transportprotocol en een poort
   - routers: systemen om verkeer op een bepaald entrypoint om te leiden naar een achterliggende dienst
-  - middleware: systemen om verkeer te inspecteren en/of aan te passen
+  - middleware: systemen om verkeer te inspecteren en/of aan te passen, zoals:
   - services: de achterliggende diensten, ongeveer wat ook Docker Compose verstaat onder "services"
 
 # Codevoorbeeld
@@ -117,6 +117,10 @@ Onderstaand voorbeeld is een sjabloon, maar werkt nog niet volledig. Onderzoek h
 Eventueel haal je alles rond middleware weg, zowel uit het onderdeel rond de router als in de definitie van de middleware zelf. Als het zonder middleware lukt, kan je die daarna nog steeds toevoegen.
 {% endhint %}
 
+{% hint style="warning" %}
+Staar je niet blind op alleen de Traefikconfiguratie. Entrypoints zijn maar bruikbaar als Docker de juiste poorten opent.
+{% endhint %}
+
 ## Statische configuratie
 ```yaml
 # dit wordt allemaal vastgelegd bij opstart van Traefik
@@ -173,5 +177,17 @@ http:
         servers:
         # dit is een lijst met adressen voor die achterliggende containers
         # dit kunnen IP-adressen zijn, maar in Docker Compose mogen het ook namen zijn
+        # HET PROTOCOL MOET VERMELD WORDEN, zelfs als het http is
         - url: http://private/whoami-service
 ```
+
+## Middleware
+Middleware zit "in het midden" tussen HTTP request en response.
+Je kan middleware dus gebruiken om extra aanpassingen te doen aan beide.
+Je vindt [hier](https://doc.traefik.io/traefik/middlewares/http/overview/) een uitgebreide lijst met HTTP-middleware.
+Enkele voorbeelden:
+
+- login vereisen zonder accountsysteem (de `basicAuth` middleware)
+- comprimeren van de response (de `Compress` middleware; kost rekentijd, maar leidt tot minder netwerkverkeer)
+- weghalen van een deel van het pad (de `StripPrefix` middleware; zo kan `mywebsite.com/a/b/c` bijvoorbeeld herschreven worden zodat `/b/c` zichtbaar is voor de ontvanger maar `/a` niet)
+  - dit kan je testen met de `whoami` image, probeer met het eerdere voorbeeld eens `example.localhost/whoami/test`
