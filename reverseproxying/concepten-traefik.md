@@ -15,7 +15,7 @@ Traefik heeft een aantal kernconcepten die je steeds in het achterhoofd moet hou
   - providers: waar Traefik zijn dynamische configuratie haalt
   - entrypoints: hoe Traefik bereikt kan worden, in essentie een transportprotocol en een poort
   - routers: systemen om verkeer op een bepaald entrypoint om te leiden naar een achterliggende dienst
-  - middleware: systemen om verkeer te inspecteren en/of aan te passen
+  - middleware: systemen om verkeer te inspecteren en/of aan te passen, zoals:
   - services: de achterliggende diensten, ongeveer wat ook Docker Compose verstaat onder "services"
 
 # Codevoorbeeld
@@ -77,17 +77,21 @@ Deze omvat op zijn minst:
 De dynamische configuratie geeft al de rest: hoe wordt specifiek verkeer geïdentificeerd, waar moet het naartoe,... Je zal voorbeelden van deze configuratie in verschillende vormen tegenkomen, bijvoorbeeld in YAML:
 
 ```yaml
-## Dynamic configuration
-http:
-  routers:
-    my-router:
-      rule: "Path(`/foo`)"
-      service: service-foo
+http: # deze info is enkel van toepassing op HTTP-verkeer
+  routers: # hieronder kan je meerdere routers definiëren
+    my-router: # dit is de naam van één zo'n router
+      rule: "Host(`whoamiservice.localhost`)" # deze router is van toepassing als we dat domein bezoeken
+      service: service-foo # als hij van toepassing is, leidt de router naar deze achterliggende service
 ```
 
-Maar je kan dit even goed uitdrukken via een Docker label:
-```
+Maar je kan zoiets even goed uitdrukken via een Docker label:
+```yaml
+# deze router handelt verkeer af waarbij de domeinnaam whoamiservice.localhost is
+# je kan zo meerdere labels achter elkaar zetten
 - "traefik.http.routers.my-router.rule=Host(`whoamiservice.localhost`)"
+# je kan bijvoorbeeld nog extra verkeer afhandelen via:
+# - "traefik.http.routers.my-router.rule=Host(`otherservice.localhost`)"
+# dan werkt dezelfde router ook voor een ander domein
 ```
 
 Je zou hier nog een label kunnen verwachten:
@@ -113,27 +117,50 @@ Onderstaand voorbeeld is een sjabloon, maar werkt nog niet volledig. Onderzoek h
 Eventueel haal je alles rond middleware weg, zowel uit het onderdeel rond de router als in de definitie van de middleware zelf. Als het zonder middleware lukt, kan je die daarna nog steeds toevoegen.
 {% endhint %}
 
+{% hint style="warning" %}
+Staar je niet blind op alleen de Traefikconfiguratie. Entrypoints zijn maar bruikbaar als Docker de juiste poorten opent.
+{% endhint %}
+
 ## Statische configuratie
 ```yaml
+# dit wordt allemaal vastgelegd bij opstart van Traefik
 entryPoints:
+  # "web" is de naam van een manier om Traefik te bereiken
   web:
+    # alle verkeer (TCP of UDP) dat naar poort 8081 gaat valt onder "web"
     address: :8081
+# dit is waar Traefik dynamische configuratie haalt
 providers:
+  # de file provider betekent dat er ergens een file is met routers,...
+  # de Docker provider betekent dat die informatie uit Docker labels gelezen wordt
+  # er zijn nog providers mogelijk
   file:
+    # dit pad kies je zelf, het leidt gewoon naar de file in kwestie
     filename: /path/to/dynamic/conf
 ```
 
 ## Dynamische configuratie
 ```yaml
+# onderstaande informatie is enkel van toepassing voor dit protocol
+# je komt op dit niveau ook "tls" tegen (dat omvat ook https), "tcp" en "udp"
 http:
-  routers:
-    to-whoami:
+  routers: # dus hier kan je routers onder definiëren
+    to-whoami: # dit is de naam van een router, mag je kiezen
+      # de router is van toepassing op verkeer zoals http://example.localhost/whoami
+      # maar niet op ander verkeer zoals example.localhost/whoareyou
+      # of example2.localhost/whoami
       rule: "Host(`example.localhost`) && PathPrefix(`/whoami/`)"
+      # dit voegt een extra stap toe
+      # test eens uit met middlewares: [] om het verschil te zien
       middlewares:
-        - test-user # zie onder
+        - test-user # zie onder, dit is de naam van een middleware
       service: whoami
+  # dit is een tussenstap voor HTTP-verkeer
   middlewares:
+    # naam van de middleware
     test-user:
+      # het soort middleware
+      # je vindt een boel mogelijkheden in de Traefik documentatie
       basicAuth:
         users:
         # dit is niet het wachtwoord, maar de hash
@@ -141,8 +168,26 @@ http:
         # dat kan in een httpd container
         - user:hashcode
   services:
+    # naam van een service kies je zelf
     whoami:
+      # een load balancer verdeelt inkomende requests over containers die hetzelfde programma runnen
+      # dit vermijdt overbelasting
+      # uit de docs: "each service has a load-balancer, even if there is only one server to forward traffic to"
       loadBalancer:
         servers:
+        # dit is een lijst met adressen voor die achterliggende containers
+        # dit kunnen IP-adressen zijn, maar in Docker Compose mogen het ook namen zijn
+        # HET PROTOCOL MOET VERMELD WORDEN, zelfs als het http is
         - url: http://private/whoami-service
 ```
+
+## Middleware
+Middleware zit "in het midden" tussen HTTP request en response.
+Je kan middleware dus gebruiken om extra aanpassingen te doen aan beide.
+Je vindt [hier](https://doc.traefik.io/traefik/middlewares/http/overview/) een uitgebreide lijst met HTTP-middleware.
+Enkele voorbeelden:
+
+- login vereisen zonder accountsysteem (de `basicAuth` middleware)
+- comprimeren van de response (de `Compress` middleware; kost rekentijd, maar leidt tot minder netwerkverkeer)
+- weghalen van een deel van het pad (de `StripPrefix` middleware; zo kan `mywebsite.com/a/b/c` bijvoorbeeld herschreven worden zodat `/b/c` zichtbaar is voor de ontvanger maar `/a` niet)
+  - dit kan je testen met de `whoami` image, probeer met het eerdere voorbeeld eens `example.localhost/whoami/test`
