@@ -1,3 +1,7 @@
+{% hint style="info" %}
+Je hoeft deze begrippen niet meteen als één lijst in te studeren. De lijst staat hier zodat je achteraf snel kan zoeken naar een bepaald begrip.
+{% endhint %}
+
 - bandbreedte: verschil tussen hoogste en laagste frequentie die door een kanaal kan getransporteerd worden
 - circuit switching: een type communicatie waarbij een verbinding tussen de eindpunten gereserveerd wordt, bijvoorbeeld zoals in het klassieke telefoonnetwerk
 - computernetwerk: een verzameling van toestellen die met elkaar kunnen communiceren
