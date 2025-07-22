@@ -40,6 +40,7 @@
   * [Docker hub](docker/docker-hub.md)
   * [Docker container starten](docker/docker-container-starten.md)
   * [Dockerfile](docker/dockerfile.md)
+  * [Intermezzo: YAML](yaml.md)
   * [Docker Compose](docker/docker-compose/README.md)
     * [docker-compose.yml](docker/docker-compose/docker-compose.yml.md)
     * [docker compose commands](docker/docker-compose/docker-compose-commands.md)
