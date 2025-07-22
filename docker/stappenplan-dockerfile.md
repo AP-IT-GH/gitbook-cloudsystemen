@@ -39,6 +39,7 @@ Als je kan inloggen op de container, probeer dan je applicatie te starten in de 
 
 - Kom je bij login terecht in een map waar het startcommando niet zou werken? Dan moet je `WORKDIR` aanpassen.
 - Vind je de applicatie niet terug op de container? Misschien moet je de files nog beschikbaar maken via `COPY`.
+  - Je kan rondkijken in het bestandensysteem met standaarcommando's zoals `ls`, `cd`, `find`, enzovoort.
 - Ontbreekt er noodzakelijke software? Waarschijnlijk moet je die installeren. Op Debian en Ubuntu moet je eerst `apt update` doen gevolgd door `apt install NAAMVANDESOFTWARE`. Aangezien deze zaken nodig zijn voor je programma kan starten, moet je ze vertalen naar `RUN` instructies in de Dockerfile.
 - Lijkt alles er te zijn, maar start je software niet? Bekijk eens of je opstartcommando wel zou werken op je eigen machine of in een gewone VM. Misschien klopt het commando gewoon niet. Eens je het juiste commando gevonden hebt, noteer het dan als de `CMD` instructie.
   - Let op: normaal is er maar één opstartcommando. Als je er meerdere wil runnen, moet je iets noteren zoals `bash -c "programma1; programma2"`. Dan run je eigenlijk één commando dat zelf meerdere commando's runt. Dit is niet vaak nodig.
