@@ -62,3 +62,16 @@ Dat doe je door op Docker Hub naar "tags" te gaan en dan de tag aan te klikken w
 In de weergave van Dockerfile zie je de reeks instructies waarmee de basisimage is gebouwd. Het kan zijn dat de basisimage zelf voortbouwt op een andere basisimage (via `FROM`). Op de screenshot merk je bijvoorbeeld dat de `mongo-express:1.0.2-alpine3.19` zelf voortbouwt op `node:2c0e...`.
 
 Heel vaak vind je in de omschrijving van de image ook links naar de letterlijke Dockerfile van elke tag.
+
+## Voorbeeld
+Veronderstel dat je een "hello world" met Express wil runnen in een Docker container. De meest gebruikte voor Expressapplicaties is 3000, dus we veronderstellen dat ook hier.
+
+1. Het gaat om broncode die je zelf voorziet, niet om een kant-en-klare applicatie. Express is een package voor NodeJS, dus zoek op Docker Hub naar "node".
+2. Start met `FROM node` en `CMD sleep infinity`.
+3. Bouw de image, start een container en log in.
+4. Kijk rond met `ls`: je hebt de files niet.
+5. Voeg de `COPY` instructie toe om je files ergens in de image op te nemen en herbouw.
+6. Log opnieuw in. Je start in `/`. Als je de files niet naar die locatie hebt gekopieerd, moet je van map veranderen. Voeg daarom de geschikte `WORKDIR` toe en herbouw.
+7. Log opnieuw in. Je ziet je files. Probeer ze te runnen met bijvoorbeeld `npm start`. Je krijgt een foutmelding omdat Express niet geïnstalleerd is. Je kan dit oplossen door `npm install` te runnen en dan opnieuw te proberen. Voeg daarom `RUN npm install` toe aan je Dockerfile. Herbouw.
+8. De applicatie zou nu moeten starten met `npm start`. Voeg dat dus toe als `CMD`.
+9. De applicatie lijkt vlot te starten, maar is niet bereikbaar op poort 3000. Nu zit het probleem niet meer in de Dockerfile. Je zou `docker run -p 3000:3000 mijn-applicatie` moeten uitvoeren, maar misschien zie je dat niet meteen. Eén manier om te controleren of de Express applicatie eigenlijk wel goed draait: log in op de container, installeer `curl` (`apt update; apt install curl`) en "browse" met `curl localhost:3000`. Je merkt dat de applicatie eigenlijk wel runt, dus de Dockerfile is oké. Het is de link met de buitenwereld die nog niet klopt.
