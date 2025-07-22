@@ -201,3 +201,4 @@ Een conversietool van en naar JSON (zoals [deze](https://www.bairesdev.com/tools
 ## Tips
 - LLM's zijn niet zo sterk in YAML, omdat YAML er makkelijk goed kan "uitzien" zonder het ook te zijn.
 - Je kan in je editor een plugin installeren voor YAML syntax. Dat kan een algemene plugin zijn of een specifieke (bijvoorbeeld de Docker plugin die heel nuttig is voor het schrijven van de YAML files van Docker Compose).
+- Indien je moeite hebt met YAML syntax: neem ergens wat JSON (bijvoorbeeld uit de [pokeapi](https://pokeapi.co/) en zet deze **met de hand** om. Controleer dan met de converter. Dit is niet "nuttig" maar het zal wel zorgen dat je het formaat begrijpt. Je kan achteraf ook in de omgekeerde richting oefenen.
