@@ -54,9 +54,9 @@ Waarschijnlijk betekent dat dat de source image gebruik maakt van `ENTRYPOINT`.
 Zo nodig kan je de instructies in de Dockerfile voor de source image zelf controleren.
 Dat doe je door op Docker Hub naar "tags" te gaan en dan de tag aan te klikken waarvoor je de Dockerfile wil zien.
 
-![aan te klikken tag](../images/aan-te-klikken-tag.png)
+![aan te klikken tag is 1.0.2-alpine3.19](../images/aan-te-klikken-tag.png)
 
-![weergave Dockerfile](../images/weergave-dockerfile.png)
+![weergave Dockerfile(s)](../images/weergave-dockerfile.png)
 
 In de weergave van Dockerfile zie je de reeks instructies waarmee de basisimage is gebouwd. Het kan zijn dat de basisimage zelf voortbouwt op een andere basisimage (via `FROM`). Op de screenshot merk je bijvoorbeeld dat de `mongo-express:1.0.2-alpine3.19` zelf voortbouwt op `node:2c0e...`.
 
