@@ -222,6 +222,10 @@ Enkele voorbeelden:
   - dit kan je testen met de `whoami` image, probeer met het eerdere voorbeeld eens `example.localhost/whoami/test`
 
 # Officiële guides
+{% hint style="danger" %}
+Niet alle versies van Traefik gebruiken dezelfde settings en er komt veel YAML aan te pas. Reken dus niet te veel op LLM's. Probeer liever in kleine stapjes je werk te verbeteren, te controleren en te committen.
+{% endhint %}
+
 De documentatie van Traefik is heel volledig en bevat verschillende nuttige stappenplannen specifiek voor Docker Compose.
 Doorloop deze in volgorde en observeer zo goed mogelijk (via dashboard) wat er gebeurt:
 
