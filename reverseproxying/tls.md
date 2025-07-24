@@ -19,6 +19,8 @@ Om de gegenereerde bestanden bekend te maken aan Traefik, raadpleeg je (de basis
 
 **Zelfs als dit werkt, zal je een waarschuwing krijgen wanneer je de website bezoekt.** Je browser zal namelijk merken dat het certificaat self-signed is. Als je weet dat dit klopt, mag je (soms via "geavanceerde opties") kiezen om toch verder te gaan.
 
+[Deze guide](https://doc.traefik.io/traefik/setup/docker/) bevat een voorbeeld van het gebruik van een self-signed certificaat.
+
 # LetsEncrypt
 
 Als je een eigen domeinnaam hebt, kan je ook zorgen dat er automatisch (en gratis) aan domeinnaamvalidatie gedaan wordt via de dienst LetsEncrypt. 

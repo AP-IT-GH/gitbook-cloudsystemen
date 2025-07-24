@@ -14,7 +14,7 @@ Er bestaan verschillende vormen van proxy. Onderstaande figuur illustreert er ee
 
 Er zijn er nog, maar je moet vooral het verschil kennen tussen "regular" (of "forward") proxy, "transparent" proxy en "reverse" proxy.
 
-Of je een "forward" en "reverse" proxy nodig hebt, hangt af van wat je probeert te doen. Een forward proxy is bijvoorbeeld goed om het uitgaand verkeer van werknemers te beperken. Een reverse proxy is bijvoorbeeld handig om inkomend verkeer te sorteren. Zo kan je bijvoorbeeld twee domeinnamen voor dezelfde machine registreren. Door naar de `Host`-header van inkomend verkeer te kijken, kan je nagaan welk adres gebruikt is. Zo hoef je geen twee servers met twee IP-adressen te configureren.
+Of je een "forward" en "reverse" proxy nodig hebt, hangt af van wat je probeert te doen. Een forward proxy is bijvoorbeeld goed om het uitgaand verkeer van werknemers te beperken. Een reverse proxy is bijvoorbeeld handig om inkomend verkeer te sorteren. Zo kan je bijvoorbeeld twee domeinnamen voor dezelfde machine registreren. Door naar de `Host`-header van inkomend verkeer te kijken, kan je nagaan welk adres gebruikt is. Zo hoef je geen twee servers met twee IP-adressen te configureren. Een reverse proxy kan ook extra werk op zich nemen, zodat de web server het niet hoeft te doen, zoals het comprimeren van HTTP responses.
 
 Een "transparent" proxy komt van pas voor applicaties die geen ingebouwde ondersteuning hebben voor proxy's. Als er geen venster "proxy settings" is in de applicatie die je via de proxy wil sturen, moet je **alles** via de proxy sturen. Applicaties zijn dan gewoon niet op de hoogte, dus de proxy is "transparant".
 
