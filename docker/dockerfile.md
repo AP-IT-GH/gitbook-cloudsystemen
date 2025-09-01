@@ -50,7 +50,7 @@ CMD ["npm", "start"]
 3. `COPY . .`: Deze regel kopieert alle bestanden en mappen uit de huidige directory naar de root directory in de container. Dit betekent dat alle bestanden uit de huidige directory (waarin de Dockerfile zich bevindt) zullen worden gekopieerd naar de root directory in de container.
 4. `RUN npm install`:  Deze regel installeert de nodige npm-packages
 5. `EXPOSE 80`: Deze regel zorgt dat de container deze netwerkpoort in de gaten houdt. Anders zal hij niet reageren als bijvoorbeeld een browser contact neemt via deze poort.
-6. `CMD ["npm", "start"]`: Uiteindelijk specificeren we dat het commando `npm start` uitgevoerd moet worden wanneer de container opgestart wordt.
+6. `CMD ["npm", "start"]`: Uiteindelijk specificeren we dat het commando `npm start` uitgevoerd moet worden wanneer de container opgestart wordt. Hier gebruiken we de "JSON syntax", waarbij we elk onderdeel van de command line instructie noteren als element in een lijst.
 
 Nadat je de Dockerfile gemaakt hebben, kan je een Docker-image bouwen voor je Node.js-applicatie door het volgende commando uit te voeren (navigeer in je terminal naar de map waarin je Dockerfile leeft):
 
@@ -67,3 +67,10 @@ docker run my-node-app
 Dit zal een nieuwe container opstarten en de code van onze Node.js-applicatie uitvoeren.
 
 <figure><img src="../images/docker/image (2).png" alt=""><figcaption></figcaption></figure>
+
+### Werking van `CMD`
+Via `CMD` geef je een commando mee dat de container meteen na opstarten zal uitvoeren. Soms zal je ook `ENTRYPOINT` tegenkomen. Wij gaan hier niet in op het verschil tussen de twee.
+
+`CMD` werkt standaard niet met **meerdere** commando's. Je kan er maar één invullen. Dat is niet altijd praktisch. Je kan niet zomaar gebruik maken van `&` of van `;`, maar je kan wel één commando invullen dat zelf meerdere commando's runt: `sh -c "commando1; commando2"`. Dat komt omdat `sh` het commando is dat je shell opstart (de "taal" van je terminal) en `-c` zorgt dat je een string tekst uitvoert alsof je hem had ingetypt.
+
+Als je de JSON syntax voor `CMD` gebruikt, heb je bijvoorbeeld `CMD ["sh", "-c", "sleep 10; date"]`. Dat zou dan zorgen dat de container 10 seconden na opstarten een datum zou tonen. Merk goed op dat het hele deel `sleep 10; date` één argument van `sh` is, dus het is **niet** `CMD ["sh", "-c", "sleep", "10", ";", "date"]` of iets gelijkaardigs.

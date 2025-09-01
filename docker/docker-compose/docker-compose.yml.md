@@ -103,6 +103,12 @@ Dit wordt gebruikt om de poorten van de container toe te wijzen aan de hostmachi
 #### `depends_on`
 Dit geeft aan dat de app afhankelijk is van de database. Hij zal hierdoor pas opstarten nadat de database gestart is. Wanneer de volledige stack wordt afgesloten, zal de app ook eerst stoppen en dan pas de database.
 
+{% hint style="warning" %}
+Dit is niet altijd **genoeg**. Docker controleert alleen dat de "dependency" opgestart is voor hij de "dependent" opstart. Dus in dit geval dat de container waarin de database loopt gestart is voor de container met de backend wordt opgestart.
+
+**Dit is belangrijk**, want het kan zijn dat de container na opstarten nog commando's uitvoert die tijd kosten. Daar let Compose niet op. Je kan dit zelf toevoegen door het opstartcommando van de dependent te vertragen met `sleep` of met een script dat controleert of de dependency volledig klaar is met opstarten.
+{% endhint %}
+
 #### links
 
 De `links` optie in Docker Compose maakt het mogelijk om containers met elkaar te verbinden. Hiermee kunnen containers op elkaar reageren en informatie uitwisselen, wat nuttig is als je bijvoorbeeld een database in een container wilt gebruiken vanuit een andere container met een webapplicatie. De `links` optie geeft een lijst van containers waarmee de huidige container verbonden moet worden.
