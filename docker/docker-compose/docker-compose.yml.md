@@ -124,5 +124,5 @@ Als we geen Dockerfile hebben en een service willen uitvoeren met een vooraf geb
 [Omgevingsvariabelen](../../../express.js/authenticatie-en-autorisatie/environment-variables.md) kunnen gebruikt worden om instellingen voor een specifieke container toe te voegen. Dit is hetzelfde als het argument `-e` in Docker bij het uitvoeren van een container. Normaal gesproken vind je de betekenis van deze variabelen terug op Docker Hub.
 
 {% hint style="info" %}
-Voor meer informatie omtrent de Docker Compose file, bekijk [de officiële documentatie](https://docs.docker.com/compose/compose-file/)!
+Voor meer informatie omtrent de Docker Compose file, bekijk [de officiële documentatie](https://docs.docker.com/compose/compose-file/)! Je vindt ook een schat aan voorbeelden op [Awesome Compose](https://github.com/docker/awesome-compose).
 {% endhint %}
