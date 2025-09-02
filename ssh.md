@@ -50,11 +50,11 @@ Installeer een Linuxdistributie (bijvoorbeeld Ubuntu server) in een virtuele mac
 
 Na installatie doorloop je volgende stappen:
 
-![./images/VMs/settings-virtualbox.avif](naar de settings van je VM gaan)
+![naar de settings van je VM gaan](./images/VMs/settings-virtualbox.avif)
 
-![./images/VMs/port-forwarding-virtualbox.avif](de port forwarding setting kiezen)
+![de port forwarding setting kiezen](./images/VMs/port-forwarding-virtualbox.avif)
 
-![./images/VMs/host-port-guest-port-virtualbox.avif](poort 22 van je fysieke machine doorsturen naar poort 22 van je virtuele machine)
+![poort 22 van je fysieke machine doorsturen naar poort 22 van je virtuele machine](./images/VMs/host-port-guest-port-virtualbox.avif)
 
 Daarna kan je inloggen met `ssh USERNAAMOPJEVM@127.0.0.1`. Uiteraard moet je `USERNAAMOPJEVM` aanpassen. `127.0.0.1` betekent "op deze machine", maar omwille van port forwarding wordt het verzoek om in te loggen doorgestuurd naar de VM.
 
